@@ -1,11 +1,16 @@
+from math import prod
 '''
 Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    # Your code here
-
-    pass
+    total_product = 0
+    new_arr = [0] * len(arr)
+    for i in range(0, len(new_arr)):
+        removed = arr.pop(i)
+        new_arr[i] = prod(arr)
+        arr.insert(i, removed)
+    return new_arr
 
 
 if __name__ == '__main__':
